@@ -10,10 +10,12 @@ sourceCompatibility = '17'
 targetCompatibility = '17'
 
 repositories {
+	google()
 	mavenCentral()
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
