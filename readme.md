@@ -31,3 +31,48 @@ The following topics will be considered:
 - Code clarity and maintainability
 - Performance
 - Resilience
+
+# Build & deploy
+
+## Prerequisites
+[Docker](https://www.docker.com/products/docker-desktop/)
+
+[JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+
+[Gradle](https://gradle.org/install/)
+
+## Enviroment
+Clone this repository to your preferred location.
+
+Inside root directory, open your console and move to the app's root location
+```bash
+ cd .\app\demo\       
+```
+
+## Build
+First recreate Gradle with wrapper
+```bash
+./gradlew build
+```
+Open **Docker Desktop** and build the docker container
+```bash
+docker build -t app/demo . 
+```
+
+## Run 
+Make sure you've opened **Docker Desktop**.
+
+Launch **mocks**
+```bash
+docker-compose up -d simulado influxdb grafana
+```
+
+Then you can launch the container with **Compose (recommended)**  
+```bash
+docker compose up -d demo
+```
+or run it **standalone** 
+```bash
+docker run -p 5000:5000 app/demo
+```
+
