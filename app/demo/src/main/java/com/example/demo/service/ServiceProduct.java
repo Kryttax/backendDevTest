@@ -13,7 +13,7 @@ import com.example.demo.data.Product;
 @Service
 public class ServiceProduct {
     private final RestTemplate rest = new RestTemplate();
-    private final String path = "http://localhost:3001/product/";
+    private final String path = "http://host.docker.internal:3001/product/";
 
     public Product getProductDetails(@PathVariable("productId") String id) {
         return rest.getForObject(path + id, Product.class);
